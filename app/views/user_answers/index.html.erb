@@ -1,0 +1,21 @@
+<h1>Your Answers</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>Correct</th>
+  </tr>
+
+<% @user_answers.each do |user_answer| %>
+  <tr>
+    <td><%= user_answer.question.question %></td>
+    <td><%= user_answer.answer.answer %></td>
+    <td><%= user_answer.answer.correct %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Play again', clear_user_answers_path %>

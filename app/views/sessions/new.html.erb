@@ -1,0 +1,22 @@
+<% content_for :js do %>
+	<script type="text/javascript">
+	    $(document).ready(function() {
+			$('#emailField').focus(function(){
+				$(this).val(''); 
+			});
+			$('#submitButton').click(function(){
+				$('#loginForm').submit();
+			});
+		});
+	</script>
+<% end %>
+
+<h3>Welcome, please log in...</h3>
+
+<%= form_tag sessions_path, { :id => "loginForm" } do %>
+	<div class="input-append">
+		<%= text_field_tag :email, "Email", :id => "emailField" %>
+	  	<button id="submitButton" class="btn" type="button">Get Started!</button>
+	</div>
+	<div class="loginError"><%= notice %></div>
+<% end %>

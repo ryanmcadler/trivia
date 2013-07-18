@@ -1,0 +1,16 @@
+<h2><%= @question.question %></h2>
+
+<%= form_for(@user_answer) do |f| %>
+  <%= f.hidden_field :question_id, :value => @question.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div class="field">
+    <%= f.label :answer_id %><br />
+    <% @question.answers.each do |answer| %>
+      <%= f.radio_button :answer_id, answer.id %>
+      <%= answer.answer %><br />
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
